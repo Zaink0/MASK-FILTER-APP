@@ -1,0 +1,3 @@
+-keepclassmembers class ai.deepar.ar.DeepAR { *; }
+
+

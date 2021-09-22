@@ -6,6 +6,7 @@ import 'package:todo_app/pages/HomePage.dart';
 import 'package:todo_app/pages/PhoneAuthPage.dart';
 import 'package:todo_app/service/Auth_service.dart';
 
+import 'HomeScreen.dart';
 import 'SignInPage.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -28,6 +29,16 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: InkWell(
+            onTap: (){
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (builder)=>HomeScreen()), (route) => false);
+            },
+            child: Icon(Icons.arrow_back,color: Colors.white,)),
+
+
+      ),
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -57,11 +68,11 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(
                 height: 1,
               ),
-              buttonItem("assets/phone.svg","Continue with Phone",25,(){
-
-                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-                    builder: (builder)=>PhoneAuthPage()), (route) => false);
-              }),
+              // buttonItem("assets/phone.svg","Continue with Phone",25,(){
+              //
+              //   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+              //       builder: (builder)=>PhoneAuthPage()), (route) => false);
+              // }),
 
               SizedBox(
                  height: 15,
@@ -117,10 +128,15 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),),
                   ),
                 ],
-              )
+              ),
+
+              SizedBox(
+                height: 35,
+              ),
               
 
             ],
+
           ),
         ),
       ),

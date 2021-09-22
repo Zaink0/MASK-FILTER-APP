@@ -30,12 +30,7 @@ class _PhoneAuthPageState extends State<PhoneAuthPage> {
       backgroundColor: Colors.black87,
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: Text("Phone Login",
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.white,
 
-          ),),
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
@@ -61,7 +56,21 @@ class _PhoneAuthPageState extends State<PhoneAuthPage> {
           child: Column(
             children: [
               SizedBox(
-                height: 150,
+                height: 60,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 30
+                ),
+                child: Text("Step 2 Verification: Phone",style: TextStyle(
+                  fontSize: 35,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+
+                ),),
+              ),
+              SizedBox(
+                height: 30,
               ),
               textField(),
               SizedBox(
@@ -169,9 +178,12 @@ class _PhoneAuthPageState extends State<PhoneAuthPage> {
                       ),),
                   ),
                 ),
-              )
-
+              ),
+              SizedBox(
+                height: 40,
+              ),
             ],
+
 
           ),
         ),

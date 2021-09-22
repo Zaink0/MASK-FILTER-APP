@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart'as firebase_auth;
+import 'package:todo_app/pages/BottomPanel.dart';
 import 'package:todo_app/pages/CameraWithMaskFilterScreen.dart';
+
 import 'package:todo_app/pages/HomePage.dart';
 import 'package:todo_app/pages/SignInPage.dart';
 import 'package:todo_app/pages/SignUpPage.dart';
@@ -52,7 +54,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MySplashScreen(),
+      home: BottomPanel(),
 
     );
   }

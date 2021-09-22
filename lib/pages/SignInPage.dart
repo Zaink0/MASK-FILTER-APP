@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_auth/firebase_auth.dart'as firebase_auth;
+import 'package:todo_app/pages/HomeScreen.dart';
 import 'package:todo_app/pages/SignUpPage.dart';
 import 'package:todo_app/service/Auth_service.dart';
 
@@ -24,6 +25,16 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: InkWell(
+          onTap: (){
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (builder)=>HomeScreen()), (route) => false);
+          },
+            child: Icon(Icons.arrow_back,color: Colors.white,)),
+
+
+      ),
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -34,11 +45,17 @@ class _SignInPageState extends State<SignInPage> {
 
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Login",style: TextStyle(
-                fontSize: 35,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 30
+                ),
+                child: Text("Step 1 Verification: Login",style: TextStyle(
+                  fontSize: 35,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+
+                ),),
+              ),
 
               SizedBox(
                 height: 20,
@@ -115,10 +132,15 @@ class _SignInPageState extends State<SignInPage> {
                   fontSize: 16,
                   fontWeight: FontWeight.bold
               ),),
+              SizedBox(
+                height: 25,
+              ),
 
 
             ],
+
           ),
+
         ),
       ),
 

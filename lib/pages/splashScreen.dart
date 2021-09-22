@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
+import 'package:todo_app/pages/HomeScreen.dart';
 import 'package:todo_app/pages/SignUpPage.dart';
 
 class MySplashScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
   Widget build(BuildContext context) {
     return SplashScreen(
       seconds: 5,
-      navigateAfterSeconds: SignUpPage(),
+      navigateAfterSeconds: HomeScreen(),
       title: Text("CLIXEL MASK APP",style: TextStyle(
         fontSize: 55,
         color: Colors.deepPurpleAccent,

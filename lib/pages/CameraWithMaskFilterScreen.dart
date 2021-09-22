@@ -1,9 +1,12 @@
+import 'dart:html';
+
 import 'package:avatar_view/avatar_view.dart';
 import 'package:camera_deep_ar/camera_deep_ar.dart';
 import 'package:flutter/material.dart';
 import 'dart:io' as platform;
 
 import 'package:flutter/widgets.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 
 class CameraWithMaskFiltersScreen extends StatefulWidget {
   const CameraWithMaskFiltersScreen({Key? key}) : super(key: key);
@@ -21,7 +24,10 @@ class _CameraWithMaskFiltersScreenState extends State<CameraWithMaskFiltersScree
   Effects currentEffects= Effects.none;
   Filters currentFilters= Filters.none;
   Masks currentMask = Masks.none;
-  String path1 = "Android/data/com.example.todo_app/files/Pictures";
+  late String path;
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +48,11 @@ class _CameraWithMaskFiltersScreenState extends State<CameraWithMaskFiltersScree
 
             });
       },
-              onImageCaptured: (path1){
-                platformVersion = "Image saved at $path1";
+              onImageCaptured: (path){
+                platformVersion = "Image saved at $path";
                 print(platformVersion);
                 setState(() {
+
 
                 });
               },
@@ -73,13 +80,23 @@ class _CameraWithMaskFiltersScreenState extends State<CameraWithMaskFiltersScree
                     child: Expanded(
                       child: ElevatedButton(
                           child: Icon(Icons.camera_enhance,color: Colors.white,),
-                        onPressed:(){
+                        onPressed:() async{
                             if(null == cameraDeepArController){
                               return;
-                            }else{
-                              cameraDeepArController.snapPhoto();
                             }
-                        } ,
+
+                              cameraDeepArController.snapPhoto();
+
+
+
+
+
+
+    }
+
+
+
+     ,
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.all(15),
 
@@ -169,4 +186,5 @@ class _CameraWithMaskFiltersScreenState extends State<CameraWithMaskFiltersScree
       ),
     );
   }
+
 }

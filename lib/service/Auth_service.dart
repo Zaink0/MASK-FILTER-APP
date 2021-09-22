@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:todo_app/pages/CameraWithMaskFilterScreen.dart';
-import 'package:todo_app/pages/HomePage.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthClass
@@ -88,18 +87,19 @@ Future <void> verifyPhoneNumber(
 
 
     };
-
-
-    PhoneVerificationFailed verificationFailed = (FirebaseAuthException exception)
-    {
-      showSnackBar(context, exception.toString());
-    };
     PhoneCodeSent codeSent =
-    (String verificationID,[int? forceResendtoken]) {
+        (String verificationID,[int? force]) {
 
-      showSnackBar(context, "Verification Code Sent on the Phpne Number");
+      showSnackBar(context, "Verification Code Sent on the Phone Number");
       setData(verificationID);
-    } as PhoneCodeSent;
+    };
+
+
+   PhoneVerificationFailed verificationFailed= (FirebaseAuthException exception)
+    {
+      showSnackBar(context,"Verification Failed");
+    };
+
 
     PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout =
     (String verificationID){
